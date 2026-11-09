@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瓜子二手车官网 - 精选车源与选购指南</title>
+  <meta name="description" content="瓜子二手车官网汇聚全国热门二手车源、新能源准新车、SUV与家用轿车等具体条目，提供检测标准、价格行情与选购路径，适合计划购车的用户参考。">
+  <meta name="keywords" content="二手车检测报告,新能源准新车,SUV二手车,家用轿车,二手车价格行情">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e85d2c'/%3E%3Cpath d='M20 60h60l-8-20H28z' fill='%23fff'/%3E%3Ccircle cx='35' cy='65' r='7' fill='%23222'/%3E%3Ccircle cx='65' cy='65' r='7' fill='%23222'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --brand: #e85d2c;
+      --brand-dark: #c94a1e;
+      --brand-light: #fff2ec;
+      --ink: #1a1a1a;
+      --ink-soft: #4a4a4a;
+      --ink-mute: #777;
+      --line: #e5e5e5;
+      --bg: #f7f5f2;
+      --panel: #ffffff;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 12px rgba(0,0,0,.06);
+      --shadow-hover: 0 6px 20px rgba(232,93,44,.12);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --announce-h: 38px;
+      --header-h: 64px;
+      --sticky-offset: calc(var(--announce-h) + var(--header-h) + 8px);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ===== 吸顶公告条 ===== */
+    .announce-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--announce-h);
+      background: linear-gradient(90deg, #2b2b2b, #3d3d3d);
+      color: #ffd9c9;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+      overflow: hidden;
+    }
+    .announce-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .announce-dot {
+      width: 7px; height: 7px;
+      background: var(--brand);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+    .announce-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .announce-text strong { color: #fff; font-weight: 600; }
+    .announce-link { margin-left: auto; flex-shrink: 0; color: #ffb99c; font-weight: 500; border-bottom: 1px dashed; }
+    .announce-link:hover { color: #fff; }
+
+    /* ===== 吸顶页头 ===== */
+    .site-header {
+      position: fixed;
+      top: var(--announce-h);
+      left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      z-index: 99;
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-mark { width: 38px; height: 38px; display: block; }
+    .brand-text {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .brand-text em { font-style: normal; color: var(--brand); }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      padding: 7px 13px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: background .15s, color .15s;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible {
+      background: var(--brand-light);
+      color: var(--brand-dark);
+      outline: none;
+    }
+    .header-cta {
+      flex-shrink: 0;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgba(232,93,44,.3);
+      transition: background .15s, transform .15s;
+    }
+    .header-cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .header-cta:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 2px; }
+
+    /* ===== 主容器（三栏门户） ===== */
+    .page-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: calc(var(--sticky-offset) + 10px) 20px 60px;
+    }
+
+    /* ===== 首屏 ===== */
+    .hero {
+      background: linear-gradient(135deg, #fff8f4 0%, #ffffff 55%, #fef3ee 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 40px 44px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 32px;
+      align-items: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(232,93,44,.08), transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-light);
+      color: var(--brand-dark);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .hero-badge svg { width: 14px; height: 14px; }
+    .hero h1 {
+      font-size: 36px;
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: -.8px;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .hero h1 em { font-style: normal; color: var(--brand); }
+    .hero-desc {
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin-bottom: 22px;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 11px 26px;
+      border-radius: 26px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(232,93,44,.28);
+      transition: background .15s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .btn-primary:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 2px; }
+    .btn-ghost {
+      background: #fff;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      padding: 11px 24px;
+      border-radius: 26px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: border-color .15s, color .15s;
+    }
+    .btn-ghost:hover { border-color: var(--brand); color: var(--brand-dark); }
+    .btn-ghost:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-visual svg { width: 100%; max-width: 320px; height: auto; filter: drop-shadow(0 8px 24px rgba(232,93,44,.12)); }
+
+    /* ===== 三栏主体 ===== */
+    .layout-3col {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 250px;
+      gap: 26px;
+      align-items: start;
+    }
+
+    /* 左侧频道索引 */
+    .channel-index {
+      position: sticky;
+      top: var(--sticky-offset);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 14px;
+    }
+    .channel-index h2 {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--ink-mute);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding-left: 6px;
+    }
+    .channel-index ul li a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--ink-soft);
+      transition: background .15s, color .15s;
+    }
+    .channel-index ul li a:hover, .channel-index ul li a:focus-visible {
+      background: var(--brand-light);
+      color: var(--brand-dark);
+      outline: none;
+    }
+    .channel-index .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--brand);
+      flex-shrink: 0;
+      opacity: .55;
+    }
+    .channel-index .count {
+      margin-left: auto;
+      font-size: 11.5px;
+      color: var(--ink-mute);
+      background: var(--bg);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+
+    /* 中间主内容 */
+    .main-col { min-width: 0; }
+
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 24px;
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.3px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-head h2::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      background: var(--brand);
+      border-radius: 2px;
+    }
+    .section-head .sub {
+      font-size: 13px;
+      color: var(--ink-mute);
+    }
+
+    /* 1. 领域概览 */
+    .overview-text p { color: var(--ink-soft); margin-bottom: 12px; font-size: 14.5px; line-height: 1.8; }
+    .overview-text p:last-child { margin-bottom: 0; }
+    .overview-text strong { color: var(--ink); font-weight: 600; }
+
+    /* 2. 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .car-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .car-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: #f0c9b8; }
+    .car-card img { width: 100%; height: 150px; object-fit: cover; }
+    .car-card-body { padding: 13px 14px 14px; display: flex; flex-direction: column; flex: 1; }
+    .car-card-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; line-height: 1.4; }
+    .car-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--ink-mute);
+      white-space: nowrap;
+    }
+    .tag.hot { background: var(--brand-light); color: var(--brand-dark); font-weight: 600; }
+    .car-desc { font-size: 12.5px; color: var(--ink-mute); line-height: 1.55; margin-bottom: 10px; flex: 1; }
+    .car-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink-mute);
+      border-top: 1px dashed var(--line);
+      padding-top: 9px;
+      gap: 6px;
+    }
+    .car-price { color: var(--brand-dark); font-weight: 700; font-size: 15px; }
+    .car-price small { font-size: 11px; font-weight: 400; color: var(--ink-mute); }
+
+    /* 3. 动态列表 */
+    .update-list li {
+      display: flex;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px dashed var(--line);
+      align-items: flex-start;
+      font-size: 14px;
+    }
+    .update-list li:last-child { border-bottom: none; }
+    .update-list .time {
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--brand-dark);
+      background: var(--brand-light);
+      padding: 2px 9px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-top: 1px;
+      min-width: 62px;
+      text-align: center;
+    }
+    .update-list .item-name { font-weight: 600; color: var(--ink); }
+    .update-list .item-sum { color: var(--ink-mute); font-size: 13px; }
+
+    /* 4. 分类入口 */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+    .cat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      transition: border-color .15s, background .15s, color .15s;
+      text-align: center;
+    }
+    .cat-item:hover, .cat-item:focus-visible {
+      border-color: var(--brand);
+      background: var(--brand-light);
+      color: var(--brand-dark);
+      outline: none;
+    }
+    .cat-item .cat-icon { font-size: 22px; line-height: 1; }
+    .cat-item .cat-count { font-size: 11px; font-weight: 400; color: var(--ink-mute); }
+
+    /* 5. 深度解析 */
+    .deep p { color: var(--ink-soft); margin-bottom: 14px; font-size: 14.5px; line-height: 1.85; }
+    .deep h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 22px 0 10px;
+      padding-left: 10px;
+      border-left: 3px solid var(--brand);
+    }
+    .deep h3:first-of-type { margin-top: 0; }
+    .deep ul { margin: 0 0 14px 0; padding-left: 4px; }
+    .deep ul li {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.8;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .deep ul li::before {
+      content: "";
+      position: absolute;
+      left: 4px; top: 11px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--brand);
+      opacity: .6;
+    }
+    .deep strong { color: var(--ink); font-weight: 600; }
+
+    /* 6. 体验指南 */
+    .guide-steps { display: flex; flex-direction: column; gap: 14px; }
+    .guide-step {
+      display: flex;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      border: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    .guide-step:hover { border-color: #f0c9b8; }
+    .step-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .guide-step h3 { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+    .guide-step p { font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; }
+
+    /* 7. FAQ */
+    .faq details {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+    .faq details:last-child { border-bottom: none; }
+    .faq summary {
+      cursor: pointer;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      outline: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before {
+      content: "+";
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-light);
+      color: var(--brand-dark);
+      border-radius: 50%;
+      font-size: 15px;
+      font-weight: 700;
+      transition: transform .2s;
+    }
+    .faq details[open] summary::before { content: "−"; }
+    .faq summary:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+    .faq .faq-answer {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      padding: 8px 0 4px 26px;
+    }
+
+    /* 8. 评论 */
+    .comment-list { display: flex; flex-direction: column; gap: 12px; }
+    .comment-item {
+      display: flex;
+      gap: 11px;
+      padding: 12px 14px;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+    }
+    .avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), #f59e7a);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .comment-body { flex: 1; min-width: 0; }
+    .comment-head {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 3px;
+      flex-wrap: wrap;
+    }
+    .comment-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+    .comment-time { font-size: 11.5px; color: var(--ink-mute); }
+    .comment-text { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+
+    /* 9. 资讯 */
+    .news-list li {
+      display: flex;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px dashed var(--line);
+      align-items: flex-start;
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-thumb {
+      width: 100px; height: 66px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .news-body { flex: 1; min-width: 0; }
+    .news-title { font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+    .news-title:hover { color: var(--brand-dark); }
+    .news-meta { font-size: 11.5px; color: var(--ink-mute); margin-bottom: 3px; }
+    .news-sum { font-size: 12.5px; color: var(--ink-mute); line-height: 1.5; }
+
+    /* 10. 相关推荐 */
+    .rel-tags { display: flex; flex-wrap: wrap; gap: 9px; }
+    .rel-tags a {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      transition: border-color .15s, color .15s, background .15s;
+    }
+    .rel-tags a:hover, .rel-tags a:focus-visible {
+      border-color: var(--brand);
+      color: var(--brand-dark);
+      background: var(--brand-light);
+      outline: none;
+    }
+
+    /* 11. 榜单 */
+    .rank-list { counter-reset: rank; }
+    .rank-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 14px;
+    }
+    .rank-list li:last-child { border-bottom: none; }
+    .rank-num {
+      counter-increment: rank;
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--bg);
+      color: var(--ink-mute);
+    }
+    .rank-list li:nth-child(1) .rank-num { background: var(--brand); color: #fff; }
+    .rank-list li:nth-child(2) .rank-num { background: #f59e7a; color: #fff; }
+    .rank-list li:nth-child(3) .rank-num { background: #fbbf9e; color: #7a2e10; }
+    .rank-name { font-weight: 600; color: var(--ink); flex: 1; min-width: 0; }
+    .rank-meta { font-size: 12px; color: var(--ink-mute); flex-shrink: 0; }
+    .rank-price { color: var(--brand-dark); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+
+    /* 右侧辅助栏 */
+    .side-col { display: flex; flex-direction: column; gap: 20px; }
+    .side-block {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+    }
+    .side-block h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .side-block h2::before {
+      content: "";
+      width: 3px; height: 15px;
+      background: var(--brand);
+      border-radius: 2px;
+    }
+    .side-hot li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 13px;
+    }
+    .side-hot li:last-child { border-bottom: none; }
+    .side-hot .hot-index {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--bg);
+      color: var(--ink-mute);
+    }
+    .side-hot li:nth-child(1) .hot-index { background: var(--brand); color: #fff; }
+    .side-hot li:nth-child(2) .hot-index { background: #f59e7a; color: #fff; }
+    .side-hot li:nth-child(3) .hot-index { background: #fbbf9e; color: #7a2e10; }
+    .side-hot .hot-name { flex: 1; min-width: 0; color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .side-hot .hot-num { font-size: 11px; color: var(--brand-dark); font-weight: 600; flex-shrink: 0; }
+
+    .side-guide p { font-size: 13px; color: var(--ink-mute); line-height: 1.7; margin-bottom: 10px; }
+    .side-guide .guide-link {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .side-guide .guide-link:last-child { border-bottom: none; }
+    .side-guide .guide-link:hover { text-decoration: underline; }
+
+    /* 页尾 */
+    .site-footer {
+      background: #1e1e1e;
+      color: #b0b0b0;
+      margin-top: 20px;
+      padding: 44px 20px 28px;
+    }
+    .footer-inner { max-width: 1360px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #333;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-brand svg { width: 34px; height: 34px; }
+    .footer-brand span { font-size: 18px; font-weight: 800; color: #fff; }
+    .footer-brand span em { font-style: normal; color: var(--brand); }
+    .footer-desc { font-size: 13px; line-height: 1.75; color: #888; max-width: 300px; }
+    .footer-col h3 { font-size: 14px; color: #fff; font-weight: 600; margin-bottom: 13px; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { font-size: 13px; color: #999; transition: color .15s; }
+    .footer-col ul li a:hover { color: var(--brand); }
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #777;
+    }
+    .footer-bottom .disclaimer { color: #666; }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .layout-3col { grid-template-columns: 1fr; }
+      .channel-index { position: static; display: flex; flex-wrap: wrap; gap: 8px; padding: 14px; }
+      .channel-index h2 { width: 100%; margin-bottom: 4px; }
+      .channel-index ul { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; }
+      .channel-index ul li a { padding: 6px 12px; background: var(--bg); border-radius: 16px; font-size: 13px; }
+      .channel-index .count { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 32px 28px; }
+      .hero-visual { display: none; }
+      .side-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+    @media (max-width: 740px) {
+      :root { --header-h: 58px; --announce-h: 36px; }
+      .page-wrap { padding: calc(var(--sticky-offset) + 8px) 12px 40px; }
+      .header-inner { gap: 12px; }
+      .brand-text { font-size: 16px; }
+      .brand-mark { width: 32px; height: 32px; }
+      .main-nav { display: none; }
+      .header-cta { padding: 7px 14px; font-size: 13px; }
+      .hero { padding: 26px 20px; border-radius: 14px; }
+      .hero h1 { font-size: 26px; }
+      .hero-desc { font-size: 14px; }
+      .section { padding: 18px 16px; }
+      .side-col { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-brand span { font-size: 16px; }
+      .announce-inner { font-size: 12px; }
+      .announce-link { display: none; }
+      .card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .car-card img { height: 110px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .news-thumb { width: 76px; height: 56px; }
+    }
+    @media (max-width: 420px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar" role="region" aria-label="最新公告">
+    <div class="announce-inner">
+      <span class="announce-dot" aria-hidden="true"></span>
+      <span class="announce-text"><strong>11月8日更新</strong>：本周新增 326 辆严选车源，新能源准新车占比升至 28%</span>
+      <a class="announce-link" href="/#latest-updates">查看全部更新 →</a>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="瓜子二手车官网首页">
+        <svg class="brand-mark" viewBox="0 0 48 48" role="img" aria-label="瓜子二手车图形标志">
+          <rect width="48" height="48" rx="11" fill="#e85d2c"/>
+          <path d="M11 29h26l-3.5-9.5H14.5z" fill="#fff"/>
+          <circle cx="17" cy="32.5" r="3.4" fill="#1a1a1a"/>
+          <circle cx="31" cy="32.5" r="3.4" fill="#1a1a1a"/>
+          <circle cx="17" cy="32.5" r="1.3" fill="#fff"/>
+          <circle cx="31" cy="32.5" r="1.3" fill="#fff"/>
+          <path d="M22 17.5l2-3 2 3" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">瓜子二手车<em>官网</em></span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#featured-cars">严选车源</a>
+        <a href="/#category-entry">按类型选车</a>
+        <a href="/#deep-analysis">选购指南</a>
+        <a href="/#latest-updates">最新上架</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#user-comments">车主评价</a>
+        <a href="/#rank-board">热门榜单</a>
+      </nav>
+      <button class="header-cta" type="button" onclick="document.getElementById('featured-cars').scrollIntoView({behavior:'smooth'})">看今日好车</button>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+
+    <!-- 首屏 -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="hero-badge">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1l2 4.5L15 6l-3.5 3.5L12.5 15 8 12.5 3.5 15l1-5.5L1 6l5-.5z" fill="currentColor"/></svg>
+          全国 326 城 · 严选车源实时更新
+        </span>
+        <h1 id="hero-title">瓜子二手车官网</h1>
+        <p class="hero-desc">汇聚全国个人车源与商家严选车，覆盖新能源准新车、家用轿车、SUV、MPV 等具体类别。提供检测报告解读、价格行情对比、准新车与燃油车选购路径，帮助你在看车前先想清楚买什么、怎么比。</p>
+        <div class="hero-actions">
+          <button class="btn-primary" type="button" onclick="document.getElementById('featured-cars').scrollIntoView({behavior:'smooth'})">浏览精选车源</button>
+          <a class="btn-ghost" href="/#deep-analysis">了解选购标准</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="150" width="280" height="70" rx="10" fill="#fde8df"/>
+          <rect x="40" y="100" width="240" height="60" rx="8" fill="#e85d2c"/>
+          <rect x="60" y="80" width="200" height="40" rx="6" fill="#f59e7a"/>
+          <circle cx="85" cy="170" r="22" fill="#2b2b2b"/>
+          <circle cx="85" cy="170" r="9" fill="#888"/>
+          <circle cx="235" cy="170" r="22" fill="#2b2b2b"/>
+          <circle cx="235" cy="170" r="9" fill="#888"/>
+          <rect x="120" y="108" width="80" height="8" rx="4" fill="#fff" opacity=".7"/>
+          <rect x="130" y="124" width="60" height="6" rx="3" fill="#fff" opacity=".45"/>
+          <path d="M260 60l12 12-12 12-12-12z" fill="#e85d2c" opacity=".3"/>
+          <circle cx="60" cy="50" r="8" fill="#f59e7a" opacity=".5"/>
+          <circle cx="280" cy="100" r="5" fill="#e85d2c" opacity=".4"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 三栏门户布局 -->
+    <div class="layout-3col">
+
+      <!-- 左：频道索引 -->
+      <aside class="channel-index" aria-label="频道索引">
+        <h2>频道索引</h2>
+        <ul>
+          <li><a href="/#featured-cars"><span class="dot"></span>严选好车<span class="count">48</span></a></li>
+          <li><a href="/#category-entry"><span class="dot"></span>新能源准新<span class="count">36</span></a></li>
+          <li><a href="/#category-entry"><span class="dot"></span>家用轿车<span class="count">52</span></a></li>
+          <li><a href="/#category-entry"><span class="dot"></span>SUV 专区<span class="count">41</span></a></li>
+          <li><a href="/#deep-analysis"><span class="dot"></span>检测报告<span class="count">解读</span></a></li>
+          <li><a href="/#experience-guide"><span class="dot"></span>选购路径<span class="count">指南</span></a></li>
+          <li><a href="/#latest-updates"><span class="dot"></span>最新上架<span class="count">实时</span></a></li>
+          <li><a href="/#user-comments"><span class="dot"></span>车主评价<span class="count">286</span></a></li>
+          <li><a href="/#rank-board"><span class="dot"></span>热门榜单<span class="count">周榜</span></a></li>
+          <li><a href="/#related-tags"><span class="dot"></span>延伸方向<span class="count">标签</span></a></li>
+        </ul>
+      </aside>
+
+      <!-- 中：主内容 -->
+      <main class="main-col">
+
+        <!-- 1. 主题领域概览 -->
+        <section class="section" id="overview" aria-labelledby="overview-h2">
+          <div class="section-head">
+            <h2 id="overview-h2">二手车选购领域概览</h2>
+            <span class="sub">2026 年 11 月市场观察</span>
+          </div>
+          <div class="overview-text">
+            <p>在瓜子二手车官网能看到的具体方向，大致分为几个层面。按<strong>动力类型</strong>分，新能源准新车与燃油车是当前关注度最高的两条线：前者车龄普遍在 1—3 年、里程 2—5 万公里，适合想省油费又介意新车折旧的买家；后者覆盖 3—8 年车龄，价格梯度更宽，维修网络也更成熟。</p>
+            <p>按<strong>车身形式</strong>分，家用轿车与 SUV 是交易量最集中的两类。紧凑型轿车如轩逸、朗逸，二手价格集中在 5—9 万区间；中型 SUV 如 CR-V、途观 L，主流年份车源在 10—16 万。MPV 则偏向二胎家庭和商务接待，别克 GL8 与传祺 M8 是搜索量较高的具体条目。</p>
+            <p>当前值得关注的具体变化有三点。第一，<strong>新能源准新车</strong>供给明显增多，2024—2025 年上牌的特斯拉 Model 3、比亚迪海豹、小鹏 P7 开始进入二手流通，价格比新车低 25%—35%。第二，<strong>检测报告透明化</strong>成为比较依据，事故车、泡水车、火烧车的排除标准被更多买家主动查阅。第三，跨区域流通加快，同一车型在不同城市的价差可达到 8000—15000 元，比价成为决策前的常规动作。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="featured-cars" aria-labelledby="featured-h2">
+          <div class="section-head">
+            <h2 id="featured-h2">精选严选车源</h2>
+            <span class="sub">今日更新 8 辆 · 均含检测报告</span>
+          </div>
+          <div class="card-grid">
+            <article class="car-card">
+              <img src="https://picsum.photos/seed/gzcar-model3-01/400/300" alt="2024款特斯拉Model 3后驱版白色车身外观" width="400" height="300" loading="lazy">
+              <div class="car-card-body">
+                <h3 class="car-card-title">2024款 特斯拉 Model 3 后驱版</h3>
+                <div class="car-tags"><span class="tag hot">新能源准新</span><span class="tag">1.2万公里</span><span class="tag">纯电</span></div>
+                <p class="car-desc">2025年3月上牌，个人一手车，电池健康度 97%，标续 606km 版本，带基础辅助驾驶。</p>
+                <div class="car-meta"><span class="car-price">18.6万<small> 新车含税 24.8万</small></span><span>浏览 2310</span></div>
+              </div>
+            </article>
+            <article class="car-card">
+              <img src="https://picsum.photos/seed/gzcar-crv-02/400/300" alt="2022款本田CR-V 240TURBO 黑色SUV外观" width="400" height="300" loading="lazy">
+              <div class="car-card-body">
+                <h3 class="car-card-title">2022款 本田 CR-V 240TURBO 两驱风尚版</h3>
+                <div class="car-tags"><span class="tag hot">SUV热门</span><span class="tag">3.6万公里</span><span class="tag">燃油</span></div>
+                <p class="car-desc">2022年8月上牌，4S店全程保养记录，右前翼子板补漆，无结构性损伤，空间表现均衡。</p>
+                <div class="car-meta"><span class="car-price">13.8万<small> 当年落地 21.5万</small></span><span>浏览 1876</span></div>
+              </div>
+            </article>
+            <article class="car-card">
+              <img src="https://picsum.photos/seed/gzcar-seal-03/400/300" alt="2024款比亚迪海豹冠军版蓝色轿车外观" width="400" height="300" loading="lazy">
+              <div class="car-card-body">
+                <h3 class="car-card-title">2024款 比亚迪 海豹 550km 冠军版</h3>
+                <div class="car-tags"><span class="tag hot">准新车</span><span class="tag">0.9万公里</span><span class="tag">纯电</span></div>
+                <p class="car-desc">2025年6月上牌，准新车状态，原厂质保延续至 2031 年，支持快充，内饰无磨损。</p>
+                <div class="car-meta"><span class="car-price">14.9万<small> 新车指导 18.98万</small></span><span>浏览 3024</span></div>
+              </div>
+            </article>
+            <article class="car-card">
+              <img src="https://picsum.photos/seed/gzcar-sylphy-04/400/300" alt="2021款日产轩逸经典舒适版银色轿车外观" width="400" height="300" loading="lazy">
+              <div class="car-card-body">
+                <h3 class="car-card-title">2021款 日产 轩逸 经典 1.6XE 舒适版</h3>
+                <div class="car-tags"><span class="tag">家用轿车</span><span class="tag">5.1万公里</span><span class="tag">省油</span></div>
+                <p class="car-desc">2021年11月上牌，个人通勤用车，百公里油耗 5.8L，座椅磨损轻微，适合城市代步。</p>
+                <div class="car-meta"><span class="car-price">6.2万<small> 当年落地 11.3万</small></span><span>浏览 1542</span></div>
+              </div>
+            </article>
+            <article class="car-card">
+              <img src="https://picsum.photos/seed/gzcar-gl8-05/400/300" alt="2022款别克GL8 ES陆尊香槟色MPV外观" width="400" height="300" loading="lazy">
+              <div class="car-card-body">
+                <h3 class="car-card-title">2022款 别克 GL8 ES 陆尊 尊享型</h3>
+                <div class="car-tags"><span class="tag">商务MPV</span><span class="tag">4.4万公里</span><span class="tag">7座</span></div>
+                <p class="car-desc">2022年5月上牌，公司户转个人，第二排航空座椅，电动侧滑门，保养记录完整。</p>
+                <div class="car-meta"><span class="car-price">21.5万<small> 当年落地 35.2万</small></span><span>浏览 1120</span></div>
+              </div>
+            </article>
+            <article class="car-card">
+              <img src="https://picsum.photos/seed/gzcar-xiaopeng-06/400/300" alt="2024款小鹏P7i 702 Pro灰色轿跑外观" width="400" height="300" loading="lazy">
+              <div class="car-card-body">
+                <h3 class="car-card-title">2024款 小鹏 P7i 702 Pro</h3>
+                <div class="car-tags"><span class="tag hot">准新智驾</span><span class="tag">1.5万公里</span><span class="tag">纯电</span></div>
+                <p class="car-desc">2025年1月上牌，702km 长续航版本，城市 NGP 可用，车机流畅度好，电池健康度 96%。</p>
+                <div class="car-meta"><span class="car-price">17.2万<small> 新车指导 24.99万</small></span><span>浏览 2680</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 / 动态 -->
+        <section class="section" id="latest-updates" aria-labelledby="updates-h2">
+          <div class="section-head">
+            <h2 id="updates-h2">最新上架与车源动态</h2>
+            <span class="sub">11 月 8 日前后</span>
+          </div>
+          <ul class="update-list">
+            <li><span class="time">今天 10:24</span><div><span class="item-name">2024款 理想 L7 Pro</span> <span class="item-sum">新上架，1.8万公里，增程式，带空气悬架，售价 24.8 万。</span></div></li>
+            <li><span class="time">今天 09:50</span><div><span class="item-name">2023款 丰田 凯美瑞 2.0G 豪华版</span> <span class="item-sum">个人一手车降价 6000 元，现价 14.2 万，里程 3.2 万公里。</span></div></li>
+            <li><span class="time">昨天 21:10</span><div><span class="item-name">2024款 比亚迪 宋 PLUS DM-i</span> <span class="item-sum">新增检测报告，确认无事故无泡水，纯电续航 110km 版本。</span></div></li>
+            <li><span class="time">昨天 18:36</span><div><span class="item-name">2022款 大众 途观 L 330TSI</span> <span class="item-sum">完成复检，右后门划痕已修复，车况评级调整为 A 级。</span></div></li>
+            <li><span class="time">11月6日</span><div><span class="item-name">2024款 蔚来 ET5T</span> <span class="item-sum">新上架租电版本，电池月租 728 元，车价 19.9 万，里程 1.1 万公里。</span></div></li>
+            <li><span class="time">11月5日</span><div><span class="item-name">2021款 本田 飞度 1.5L 潮享版</span> <span class="item-sum">城市代步热门车源，4.8万公里，售价 5.6 万，支持异地过户。</span></div></li>
+            <li><span class="time">11月4日</span><div><span class="item-name">2023款 奥迪 A4L 40TFSI 时尚动感型</span> <span class="item-sum">豪华品牌轿车新上架，2.9万公里，售价 21.3 万，含原厂延保。</span></div></li>
+            <li><span class="time">11月3日</span><div><span class="item-name">2024款 问界 M7 Plus 后驱版</span> <span class="item-sum">准新车源到店，0.8万公里，鸿蒙座舱，售价 22.6 万。</span></div></li>
+          </ul>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="category-entry" aria-labelledby="cat-h2">
+          <div class="section-head">
+            <h2 id="cat-h2">按类型找车</h2>
+            <span class="sub">8 个高频搜索类别</span>
+          </div>
+          <div class="cat-grid">
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">⚡</span>新能源准新<span class="cat-count">36 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">🚗</span>家用轿车<span class="cat-count">52 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">🚙</span>SUV 专区<span class="cat-count">41 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">🚐</span>商务 MPV<span class="cat-count">18 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">🔋</span>纯电车型<span class="cat-count">29 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">⛽</span>燃油代步<span class="cat-count">63 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">🏷️</span>10 万以内<span class="cat-count">44 辆</span></a>
+            <a class="cat-item" href="/#featured-cars"><span class="cat-icon">💎</span>豪华品牌<span class="cat-count">22 辆</span></a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析正文 -->
+        <section class="section deep" id="deep-analysis" aria-labelledby="deep-h2">
+          <div class="section-head">
+            <h2 id="deep-h2">新能源准新车与燃油二手车怎么选</h2>
+            <span class="sub">600—900 字深度解析</span>
+          </div>
+          <p>在瓜子二手车官网浏览车源时，最先要做的判断不是看价格，而是想清楚自己属于哪类用车场景。新能源准新车和传统燃油二手车在使用成本、保值节奏、维修便利性上差异明显，下面从四个具体维度拆开比较。</p>
+
+          <h3>一、车龄与里程的取舍逻辑</h3>
+          <p>新能源准新车的主流车龄在 1—3 年、里程 1—5 万公里，这个区间车辆的电池衰减通常还在 5% 以内，三电质保大多可以延续。燃油二手车的合理区间更宽，3—8 年车龄对应 5—12 万公里，发动机和变速箱处于稳定期，但橡胶件、减震器开始进入更换周期。选准新车买的是“折旧已过、状态仍新”；选老一些的燃油车买的是“价格折让充分、维修件便宜”。</p>
+
+          <h3>二、检测报告里最该看的三项</h3>
+          <ul>
+            <li><strong>结构件损伤记录</strong>：A/B/C 柱、纵梁、底盘大梁是否动过，决定车辆是否属于事故车范畴。</li>
+            <li><strong>泡水与火烧排查</strong>：座椅滑轨锈蚀、保险盒泥沙、线束更换记录是关键证据，报告里会单独列出。</li>
+            <li><strong>新能源车的电池健康度</strong>：准新车应关注 SOH 数值、快充次数占比、是否有过电池包维修记录。</li>
+          </ul>
+          <p>一份完整的检测报告会附带车况评级与瑕疵位置图，评级从 A 到 D 递减。看报告时不要只看总评级，瑕疵图里标注的补漆面积和更换件清单同样重要。</p>
+
+          <h3>三、价格行情怎么比才有效</h3>
+          <p>比价要控制变量：同车型、同年份、同配置、相近里程，再看不同城市挂牌价。以 2024 款 Model 3 后驱版为例，1—1.5 万公里车源在多个城市报价集中在 18—19.5 万，价差主要来自车况评级和是否含充电权益。燃油车方面，2022 款 CR-V 两驱风尚版 3—4 万公里车源普遍在 13.5—14.5 万，跨区域价差通常在 5000 元上下。低于区间下限过多的车源，要优先核对检测报告中的结构件与泡水项。</p>
+
+          <h3>四、不同预算的对应策略</h3>
+          <ul>
+            <li><strong>6—10 万预算</strong>：优先看 2020—2022 年的紧凑型燃油轿车，轩逸、朗逸、卡罗拉流通量大，维修便利，折旧已趋缓。</li>
+            <li><strong>10—16 万预算</strong>：可覆盖 2021—2023 年主流 SUV 与部分纯电准新车，CR-V、宋 PLUS DM-i、海豹入门版都在此区间。</li>
+            <li><strong>16—25 万预算</strong>：新能源准新车选择最丰富，Model 3、小鹏 P7i、理想 L7 等车龄 1—2 年的车源集中出现。</li>
+          </ul>
+          <p>无论哪档预算，建议把“车况评级 + 电池健康度（如为新能源）+ 过户次数”三项放在一起判断，而不是只盯价格标签。同一款车，评级 A 与评级 C 之间的合理价差通常在 8%—15%，低于这个折让的 C 级车并不划算。</p>
+        </section>
+
+        <!-- 6. 体验指南 / 消费路径 -->
+        <section class="section" id="experience-guide" aria-labelledby="guide-h2">
+          <div class="section-head">
+            <h2 id="guide-h2">看车与决策的消费路径</h2>
+            <span class="sub">从浏览到下单的顺序建议</span>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <span class="step-num">1</span>
+              <div><h3>先锁定动力类型与车身形式</h3><p>纯电、插混还是燃油，轿车、SUV 还是 MPV，先定两项再进入车源列表，避免在跨类型比较中迷失。城市通勤且充电方便，纯电准新车的使用成本优势最明显。</p></div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">2</span>
+              <div><h3>用检测报告做第一轮筛选</h3><p>先排除结构件损伤、泡水、火烧三类记录，再看评级。A 级与 B 级之间的差异通常体现在补漆面积和易损件更换，不影响正常使用，可以结合价格再谈。</p></div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">3</span>
+              <div><h3>同款比价控制在三个变量内</h3><p>年份、里程、车况评级保持一致再比价格。跨城市车源要考虑过户与物流成本，实际落地价差才是有效比较依据。</p></div>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">4</span>
+              <div><h3>新能源车额外核电池与质保</h3><p>确认 SOH、快充占比、三电质保是否随车转移。租电版本要算清月租成本，再与整车购买版本做总持有成本对比。</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section faq" id="faq" aria-labelledby="faq-h2">
+          <div class="section-head">
+            <h2 id="faq-h2">二手车常见问题</h2>
+            <span class="sub">6 个高频疑问</span>
+          </div>
+          <details>
+            <summary>新能源准新车一般多久更新一次车源？</summary>
+            <div class="faq-answer">以瓜子二手车官网当前展示的车源为例，新能源准新车每天都有新上架和状态变更，周末前后更新相对集中。车龄 1—2 年的 Model 3、海豹、小鹏 P7i 等热门条目流通较快，看到合适的车况评级建议尽快确认报告细节。</div>
+          </details>
+          <details>
+            <summary>检测报告里的 A 级和 B 级差在哪里？</summary>
+            <div class="faq-answer">A 级通常意味着无结构件损伤、无泡水火烧，仅有少量外观补漆；B 级可能包含覆盖件更换或较大面积补漆，但同样排除结构件问题。两者核心区别在外观与覆盖件，不涉及车身骨架时，价差合理即可接受。</div>
+          </details>
+          <details>
+            <summary>第一次买二手车，从哪类车开始看比较好？</summary>
+            <div class="faq-answer">预算在 8 万左右可以先看 2020—2022 年的紧凑型燃油轿车，轩逸、朗逸、卡罗拉维修网络广、配件便宜，适合建立对车况和价格的判断。预算到 15 万以上，可以比较插混 SUV 与纯电准新车，但要把充电条件纳入考虑。</div>
+          </details>
+          <details>
+            <summary>纯电二手车电池衰减怎么看？</summary>
+            <div class="faq-answer">看检测报告中的 SOH（电池健康度）数值、快充次数占比和是否有电池包维修记录。SOH 在 95% 以上属于较好状态，90% 以下要结合车价折让判断。另外确认三电质保是否随车转移，这是纯电二手车价值的重要部分。</div>
+          </details>
+          <details>
+            <summary>跨城市车源过户需要额外注意什么？</summary>
+            <div class="faq-answer">先确认车辆排放标准是否符合迁入地要求，再核对过户次数与是否有抵押。物流费用和过户周期要计入总成本。同款车跨城市价差超过 1 万元时，才值得把异地因素纳入比较。</div>
+          </details>
+          <details>
+            <summary>租电版本的新能源车值不值得买？</summary>
+            <div class="faq-answer">租电版本购车价通常比整车购买低 5—8 万，但需持续支付电池月租。适合计划持有 3—5 年、对首付敏感的用户。判断时要算总持有成本：车价 + 月租 × 持有月数，再与同款整车购买版本对比，同时确认电池租约可否转让。</div>
+          </details>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="user-comments" aria-labelledby="comments-h2">
+          <div class="section-head">
+            <h2 id="comments-h2">车主与买家怎么说</h2>
+            <span class="sub">14 条近期评价</span>
+          </div>
+          <div class="comment-list">
+            <div class="comment-item"><div class="avatar">王</div><div class="comment-body"><div class="comment-head"><span class="comment-name">王先生</span><span class="comment-time">11月8日 09:12</span></div><p class="comment-text">看了 2024 款 Model 3 那台，电池健康度 97% 挺实在，报告里快充次数也标清楚了，比之前看的两家信息全。</p></div></div>
+            <div class="comment-item"><div class="avatar">李</div><div class="comment-body"><div class="comment-head"><span class="comment-name">李女士</span><span class="comment-time">11月7日 22:45</span></div><p class="comment-text">轩逸经典那台 6.2 万，价格合理，就是补漆面积比我预期大一点，不过 A 级车况能接受。</p></div></div>
+            <div class="comment-item"><div class="avatar">张</div><div class="comment-body"><div class="comment-head"><span class="comment-name">张工</span><span class="comment-time">11月7日 18:20</span></div><p class="comment-text">CR-V 和途观 L 都看了，CR-V 保养记录更完整，途观 L 空间大一点，最后按里程选了 CR-V。</p></div></div>
+            <div class="comment-item"><div class="avatar">陈</div><div class="comment-body"><div class="comment-head"><span class="comment-name">陈小姐</span><span class="comment-time">11月6日 15:03</span></div><p class="comment-text">海豹冠军版 14.9 万，比新车省了 4 万多，质保还能延续，这点对第一次买电车的人很重要。</p></div></div>
+            <div class="comment-item"><div class="avatar">赵</div><div class="comment-body"><div class="comment-head"><span class="comment-name">赵先生</span><span class="comment-time">11月5日 20:11</span></div><p class="comment-text">GL8 那台公司户转个人，过户次数显示 1 次，报告里座椅磨损情况也有照片，整体比较透明。</p></div></div>
+            <div class="comment-item"><div class="avatar">刘</div><div class="comment-body"><div class="comment-head"><span class="comment-name">刘女士</span><span class="comment-time">11月5日 11:37</span></div><p class="comment-text">小鹏 P7i 的准新车看着不错，但租电版本月租 728 元算下来五年要 4 万多，还是倾向整车购买。</p></div></div>
+            <div class="comment-item"><div class="avatar">周</div><div class="comment-body"><div class="comment-head"><span class="comment-name">周先生</span><span class="comment-time">11月4日 16:50</span></div><p class="comment-text">飞度 5.6 万代步很划算，就是配置低了点，适合不追求智能配置、只求省心的人。</p></div></div>
+            <div class="comment-item"><div class="avatar">吴</div><div class="comment-body"><div class="comment-head"><span class="comment-name">吴同学</span><span class="comment-time">11月4日 10:05</span></div><p class="comment-text">第一次买二手车，按选购指南先锁定了燃油轿车，看了三台轩逸，最后选里程最少的那台，比盲目看省事。</p></div></div>
+            <div class="comment-item"><div class="avatar">郑</div><div class="comment-body"><div class="comment-head"><span class="comment-name">郑先生</span><span class="comment-time">11月3日 19:28</span></div><p class="comment-text">A4L 21.3 万含延保，豪华品牌里算有性价比，就是保养成本要提前算进去，不能只看车价。</p></div></div>
+            <div class="comment-item"><div class="avatar">孙</div><div class="comment-body"><div class="comment-head"><span class="comment-name">孙女士</span><span class="comment-time">11月3日 14:42</span></div><p class="comment-text">问界 M7 那台 0.8 万公里准新，鸿蒙座舱体验比预期好，就是车源少，等了两天才看到合适的。</p></div></div>
+            <div class="comment-item"><div class="avatar">马</div><div class="comment-body"><div class="comment-head"><span class="comment-name">马先生</span><span class="comment-time">11月2日 22:16</span></div><p class="comment-text">宋 PLUS DM-i 的检测报告里写了纯电续航实测，这个数据比官方标称更有参考价值。</p></div></div>
+            <div class="comment-item"><div class="avatar">胡</div><div class="comment-body"><div class="comment-head"><span class="comment-name">胡女士</span><span class="comment-time">11月2日 09:34</span></div><p class="comment-text">凯美瑞降价 6000 后 14.2 万，个人一手车记录清楚，就是颜色不是我最想要的，纠结中。</p></div></div>
+            <div class="comment-item"><div class="avatar">林</div><div class="comment-body"><div class="comment-head"><span class="comment-name">林先生</span><span class="comment-time">11月1日 17:08</span></div><p class="comment-text">途观 L 复检后评级调到 A，说明平台确实会更新车况，这点比一口价挂到底的做法靠谱。</p></div></div>
+            <div class="comment-item"><div class="avatar">何</div><div class="comment-body"><div class="comment-head"><span class="comment-name">何同学</span><span class="comment-time">10月31日 20:55</span></div><p class="comment-text">预算 10 万以内，看了朗逸和卡罗拉，卡罗拉保值率高但价格也坚挺，最后选了年份稍新的朗逸。</p></div></div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news" aria-labelledby="news-h2">
+          <div class="section-head">
+            <h2 id="news-h2">二手车相关资讯</h2>
+            <span class="sub">近期动态</span>
+          </div>
+          <ul class="news-list">
+            <li>
+              <img class="news-thumb" src="https://picsum.photos/seed/gznews-nev-11/600/400" alt="新能源准新车展厅现场" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h3 class="news-title">新能源准新车供给环比上升 12%，2024 年上牌车源成主力</h3>
+                <div class="news-meta">2026-11-07 · 车源观察</div>
+                <p class="news-sum">2024—2025 年上牌的纯电与插混车型集中进入二手流通，Model 3、海豹、宋 PLUS DM-i 是新增较多的具体条目。</p>
+              </div>
+            </li>
+            <li>
+              <img class="news-thumb" src="https://picsum.photos/seed/gznews-report-12/600/400" alt="车辆检测报告单据特写" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h3 class="news-title">检测报告新增电池健康度明细，SOH 与快充占比同步展示</h3>
+                <div class="news-meta">2026-11-05 · 检测标准</div>
+                <p class="news-sum">纯电二手车的电池信息展示更细，买家可对照 SOH 数值与快充次数占比判断电池使用强度。</p>
+              </div>
+            </li>
+            <li>
+              <img class="news-thumb" src="https://picsum.photos/seed/gznews-suv-13/600/400" alt="城市道路上的SUV车流" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h3 class="news-title">紧凑型 SUV 搜索量周环比上升，CR-V 与途观 L 关注度靠前</h3>
+                <div class="news-meta">2026-11-03 · 搜索趋势</div>
+                <p class="news-sum">家庭用户对空间和通过性的需求推动 SUV 类目搜索增长，3—5 年车龄车源是主要浏览对象。</p>
+              </div>
+            </li>
+            <li>
+              <img class="news-thumb" src="https://picsum.photos/seed/gznews-crosscity-14/600/400" alt="跨城物流运输车辆场景" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h3 class="news-title">跨城购车比例提升，同款车不同城市价差最高约 1.5 万元</h3>
+                <div class="news-meta">2026-10-31 · 流通动态</div>
+                <p class="news-sum">新能源准新车区域价差较燃油车更明显，过户政策与物流成本成为买家纳入比较的关键项。</p>
+              </div>
+            </li>
+            <li>
+              <img class="news-thumb" src="https://picsum.photos/seed/gznews-mpv-15/600/400" alt="七座MPV商务车外观" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h3 class="news-title">商务 MPV 二手需求稳定，GL8 与传祺 M8 车源周转较快</h3>
+                <div class="news-meta">2026-10-29 · 车型观察</div>
+                <p class="news-sum">二胎家庭与商务接待双重需求支撑 MPV 类目，2022 年后车龄车源的关注度高于更早年份。</p>
+              </div>
+            </li>
+            <li>
+              <img class="news-thumb" src="https://picsum.photos/seed/gznews-budget-16/600/400" alt="十万元预算购车对比示意图" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h3 class="news-title">10 万以内代步车搜索集中，轩逸、朗逸、飞度位列前三</h3>
+                <div class="news-meta">2026-10-27 · 预算购车</div>
+                <p class="news-sum">低预算买家更关注维修便利性与油耗，2020—2022 年紧凑型燃油车是该预算段的主要选择。</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="related-tags" aria-labelledby="rel-h2">
+          <div class="section-head">
+            <h2 id="rel-h2">延伸选购方向</h2>
+            <span class="sub">按需求与场景索引</span>
+          </div>
+          <div class="rel-tags">
+            <a href="/#featured-cars">15 万级插混 SUV 对比</a>
+            <a href="/#featured-cars">纯电准新车电池健康度</a>
+            <a href="/#deep-analysis">事故车排除标准</a>
+            <a href="/#featured-cars">城市通勤省油轿车</a>
+            <a href="/#experience-guide">跨城过户流程</a>
+            <a href="/#featured-cars">七座 MPV 家庭用车</a>
+            <a href="/#deep-analysis">租电与整车购买成本</a>
+            <a href="/#featured-cars">豪华品牌入门二手</a>
+          </div>
+        </section>
+
+        <!-- 11. 热门榜单 -->
+        <section class="section" id="rank-board" aria-labelledby="rank-h2">
+          <div class="section-head">
+            <h2 id="rank-h2">本周热门车源榜</h2>
+            <span class="sub">按 11 月 1 日—8 日浏览量</span>
+          </div>
+          <ol class="rank-list">
+            <li><span class="rank-num"></span><span class="rank-name">2024款 比亚迪 海豹 550km 冠军版</span><span class="rank-meta">浏览 3024</span><span class="rank-price">14.9万</span></li>
+            <li><span class="rank-num"></span><span class="rank-name">2024款 小鹏 P7i 702 Pro</span><span class="rank-meta">浏览 2680</span><span class="rank-price">17.2万</span></li>
+            <li><span class="rank-num"></span><span class="rank-name">2024款 特斯拉 Model 3 后驱版</span><span class="rank-meta">浏览 2310</span><span class="rank-price">18.6万</span></li>
+            <li><span class="rank-num"></span><span class="rank-name">2022款 本田 CR-V 240TURBO 两驱风尚版</span><span class="rank-meta">浏览 1876</span><span class="rank-price">13.8万</span></li>
+            <li><span class="rank-num"></span><span class="rank-name">2021款 日产 轩逸 经典 舒适版</span><span class="rank-meta">浏览 1542</span><span class="rank-price">6.2万</span></li>
+            <li><span class="rank-num"></span><span class="rank-name">2022款 别克 GL8 ES 陆尊 尊享型</span><span class="rank-meta">浏览 1120</span><span class="rank-price">21.5万</span></li>
+          </ol>
+        </section>
+
+      </main>
+
+      <!-- 右：辅助栏 -->
+      <aside class="side-col" aria-label="辅助信息">
+        <div class="side-block">
+          <h2>实时热门搜索</h2>
+          <ul class="side-hot">
+            <li><span class="hot-index">1</span><span class="hot-name">海豹 冠军版</span><span class="hot-num">3024</span></li>
+            <li><span class="hot-index">2</span><span class="hot-name">小鹏 P7i 702</span><span class="hot-num">2680</span></li>
+            <li><span class="hot-index">3</span><span class="hot-name">Model 3 后驱</span><span class="hot-num">2310</span></li>
+            <li><span class="hot-index">4</span><span class="hot-name">CR-V 两驱风尚</span><span class="hot-num">1876</span></li>
+            <li><span class="hot-index">5</span><span class="hot-name">轩逸 经典舒适</span><span class="hot-num">1542</span></li>
+            <li><span class="hot-index">6</span><span class="hot-name">GL8 ES 陆尊</span><span class="hot-num">1120</span></li>
+            <li><span class="hot-index">7</span><span class="hot-name">宋 PLUS DM-i</span><span class="hot-num">1086</span></li>
+            <li><span class="hot-index">8</span><span class="hot-name">途观 L 330TSI</span><span class="hot-num">942</span></li>
+          </ul>
+        </div>
+        <div class="side-block side-guide">
+          <h2>选购入口</h2>
+          <p>按动力与车身形式快速定位，先看检测报告再比价格。</p>
+          <a class="guide-link" href="/#deep-analysis">新能源准新车选购要点</a>
+          <a class="guide-link" href="/#deep-analysis">燃油 SUV 车况判断</a>
+          <a class="guide-link" href="/#experience-guide">从浏览到下单的顺序</a>
+          <a class="guide-link" href="/#faq">电池健康度与质保</a>
+        </div>
+        <div class="side-block">
+          <h2>本周新增</h2>
+          <p style="font-size:13px;color:var(--ink-mute);line-height:1.8;">11 月 1 日—8 日新增车源 326 辆，其中新能源准新 91 辆、家用轿车 108 辆、SUV 76 辆、MPV 22 辆。检测报告覆盖率 100%。</p>
+        </div>
+      </aside>
+
+    </div><!-- /layout-3col -->
+  </div><!-- /page-wrap -->
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <svg viewBox="0 0 48 48" role="img" aria-label="瓜子二手车图形标志">
+              <rect width="48" height="48" rx="11" fill="#e85d2c"/>
+              <path d="M11 29h26l-3.5-9.5H14.5z" fill="#fff"/>
+              <circle cx="17" cy="32.5" r="3.4" fill="#1a1a1a"/>
+              <circle cx="31" cy="32.5" r="3.4" fill="#1a1a1a"/>
+              <circle cx="17" cy="32.5" r="1.3" fill="#fff"/>
+              <circle cx="31" cy="32.5" r="1.3" fill="#fff"/>
+            </svg>
+            <span>瓜子二手车<em>官网</em></span>
+          </div>
+          <p class="footer-desc">聚合新能源准新车、家用轿车、SUV 与商务 MPV 等具体车源，提供检测报告解读、价格行情与选购路径参考。</p>
+        </div>
+        <div class="footer-col">
+          <h3>按类型找车</h3>
+          <ul>
+            <li><a href="/#featured-cars">新能源准新车</a></li>
+            <li><a href="/#featured-cars">家用轿车</a></li>
+            <li><a href="/#featured-cars">SUV 专区</a></li>
+            <li><a href="/#featured-cars">商务 MPV</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>选购参考</h3>
+          <ul>
+            <li><a href="/#deep-analysis">检测报告解读</a></li>
+            <li><a href="/#deep-analysis">新能源与燃油对比</a></li>
+            <li><a href="/#experience-guide">看车决策路径</a></li>
+            <li><a href="/#faq">常见问题</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>社区与动态</h3>
+          <ul>
+            <li><a href="/#latest-updates">最新上架</a></li>
+            <li><a href="/#rank-board">热门榜单</a></li>
+            <li><a href="/#user-comments">车主评价</a></li>
+            <li><a href="/#news">相关资讯</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 瓜子二手车官网 · 内容聚合展示页</span>
+        <span class="disclaimer">部分内容为示例数据，仅用于展示页面结构</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+                </html>
